@@ -83,9 +83,6 @@ namespace WindowsFormsApp2
         }
 
 
-
-
-
         private void UpdateSelectedCount()
         {
             int selectedCount = dgvDuplicates.Rows.Cast<DataGridViewRow>().Count(row => Convert.ToBoolean(row.Cells["Select"].Value));
