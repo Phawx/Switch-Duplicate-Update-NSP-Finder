@@ -37,14 +37,12 @@ namespace WindowsFormsApp2
             foreach (var filePath in Directory.GetFiles(folderPath, "*.nsp"))
             {
                 string fileName = Path.GetFileName(filePath);
-                string processedFileName = Regex.Replace(fileName, @"[\[\]]|\s*\b(?:Upd|UPD)\b\s*", "").ToLowerInvariant();
 
-                Match fileKeyMatch = Regex.Match(processedFileName, @"(.*?)v\d+\.\d+\.\d+");
-                Match versionMatch = Regex.Match(processedFileName, @"v(\d+\.\d+\.\d+)");
+                Match match = Regex.Match(fileName, @"(.*?)[\s\[\(]*(?:UPD|Upd)?[\s\[\(]*v?(\d+\.\d+\.\d+)", RegexOptions.IgnoreCase);
 
-                if (fileKeyMatch.Success && versionMatch.Success && Version.TryParse(versionMatch.Groups[1].Value, out Version version))
+                if (match.Success && Version.TryParse(match.Groups[2].Value, out Version version))
                 {
-                    string fileKey = fileKeyMatch.Groups[1].Value.Trim();
+                    string fileKey = Regex.Replace(match.Groups[1].Value, @"[\[\]]", "").Trim().ToLowerInvariant();
 
                     if (!fileMap.ContainsKey(fileKey))
                     {
@@ -83,6 +81,7 @@ namespace WindowsFormsApp2
             dgvDuplicates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             UpdateSelectedCount();
         }
+
 
 
 
