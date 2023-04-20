@@ -17,6 +17,8 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
+            dgvDuplicates.CellValueChanged += dgvDuplicates_CellValueChanged;
+
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -35,8 +37,11 @@ namespace WindowsFormsApp2
             foreach (var filePath in Directory.GetFiles(folderPath, "*.nsp"))
             {
                 string fileName = Path.GetFileName(filePath);
-                string fileKey = Regex.Replace(fileName, @"(\[UPD\]|\bUpd\b)?\s*\[?v?\d+\.\d+\.\d+\]?", string.Empty, RegexOptions.IgnoreCase).Trim();
-                Match versionMatch = Regex.Match(fileName, @"\d+\.\d+\.\d+");
+                string processedFileName = Regex.Replace(fileName, @"\[|\]", "");
+
+                string fileKey = Regex.Replace(processedFileName, @"(?:\bUpd\b|\bUPD\b)?\s*v?\d+\.\d+\.\d+", string.Empty, RegexOptions.IgnoreCase).Trim();
+
+                Match versionMatch = Regex.Match(processedFileName, @"\d+\.\d+\.\d+");
 
                 if (versionMatch.Success && Version.TryParse(versionMatch.Value, out Version version))
                 {
@@ -74,13 +79,25 @@ namespace WindowsFormsApp2
                     }
                 }
             }
-
-            dgvDuplicates.ReadOnly = true;
             dgvDuplicates.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            UpdateSelectedCount();
         }
 
 
 
+        private void UpdateSelectedCount()
+        {
+            int selectedCount = dgvDuplicates.Rows.Cast<DataGridViewRow>().Count(row => Convert.ToBoolean(row.Cells["Select"].Value));
+            lblSelectedCount.Text = $"Selected: {selectedCount}";
+        }
+
+        private void dgvDuplicates_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvDuplicates.Columns["Select"].Index)
+            {
+                UpdateSelectedCount();
+            }
+        }
 
 
         private void btnDelete_Click(object sender, EventArgs e)

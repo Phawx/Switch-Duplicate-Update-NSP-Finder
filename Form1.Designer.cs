@@ -33,6 +33,7 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnDeselectAll = new System.Windows.Forms.Button();
+            this.lblSelectedCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuplicates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,11 +78,21 @@
             this.btnDeselectAll.UseVisualStyleBackColor = true;
             this.btnDeselectAll.Click += new System.EventHandler(this.btnDeselectAll_Click);
             // 
+            // lblSelectedCount
+            // 
+            this.lblSelectedCount.AutoSize = true;
+            this.lblSelectedCount.Location = new System.Drawing.Point(641, 17);
+            this.lblSelectedCount.Name = "lblSelectedCount";
+            this.lblSelectedCount.Size = new System.Drawing.Size(61, 13);
+            this.lblSelectedCount.TabIndex = 5;
+            this.lblSelectedCount.Text = "Selected: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblSelectedCount);
             this.Controls.Add(this.btnDeselectAll);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvDuplicates);
@@ -90,6 +101,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuplicates)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,6 +112,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnDeselectAll;
+        private System.Windows.Forms.Label lblSelectedCount;
     }
 }
 
