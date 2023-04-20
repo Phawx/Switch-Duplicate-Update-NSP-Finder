@@ -55,14 +55,14 @@
             this.dgvDuplicates.Location = new System.Drawing.Point(12, 41);
             this.dgvDuplicates.Name = "dgvDuplicates";
             this.dgvDuplicates.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDuplicates.Size = new System.Drawing.Size(776, 336);
+            this.dgvDuplicates.Size = new System.Drawing.Size(1288, 336);
             this.dgvDuplicates.TabIndex = 1;
             // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(12, 399);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(776, 23);
+            this.btnDelete.Size = new System.Drawing.Size(1288, 23);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE FILES";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // lblSelectedCount
             // 
             this.lblSelectedCount.AutoSize = true;
-            this.lblSelectedCount.Location = new System.Drawing.Point(641, 17);
+            this.lblSelectedCount.Location = new System.Drawing.Point(174, 17);
             this.lblSelectedCount.Name = "lblSelectedCount";
             this.lblSelectedCount.Size = new System.Drawing.Size(61, 13);
             this.lblSelectedCount.TabIndex = 5;
@@ -91,14 +91,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1312, 450);
             this.Controls.Add(this.lblSelectedCount);
             this.Controls.Add(this.btnDeselectAll);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvDuplicates);
             this.Controls.Add(this.btnBrowse);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Duplicate Switch Updates Finder";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuplicates)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
