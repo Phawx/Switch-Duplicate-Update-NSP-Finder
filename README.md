@@ -1,6 +1,6 @@
 # Duplicate File Finder for NSP Updates
 
-This is a simple C# program with a GUI for detecting and managing duplicate NSP update files in a given directory. It helps users identify duplicate files based on their version numbers, and allows users to selectively delete older versions of these files.
+This is a simple C# program with a GUI for detecting and managing duplicate Nintendo Switch NSP update files in a given directory. It helps users identify duplicate files based on their version numbers, and allows users to selectively delete older versions of these files.
 
 ## Features
 
