@@ -12,7 +12,7 @@ This is a simple C# program with a GUI for detecting and managing duplicate Nint
 
 ## Usage
 
-1. Build and run the application using Visual Studio.
+1. Build and run the application using Visual Studio or download precompiled app in release.zip
 2. Click the "Browse" button to select a directory containing NSP update files.
 3. The program will display a list of duplicate files, automatically selecting checkboxes for older versions.
 4. You can manually check or uncheck files as desired.
